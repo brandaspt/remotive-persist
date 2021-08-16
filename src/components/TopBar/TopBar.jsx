@@ -1,14 +1,13 @@
 import { Container } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { connect } from "react-redux"
+import { useSelector } from "react-redux"
 
 import FavoritesIndicator from "../FavoritesIndicator/FavoritesIndicator"
 
 import "./TopBar.css"
 
-const mapStateToProps = state => state
-
-const TopBar = ({ favorites }) => {
+const TopBar = () => {
+  const favorites = useSelector(state => state.favorites)
   return (
     <div id="fixed-compensator">
       <Container fluid className="TopBar d-flex align-items-center">
@@ -22,4 +21,4 @@ const TopBar = ({ favorites }) => {
   )
 }
 
-export default connect(mapStateToProps)(TopBar)
+export default TopBar

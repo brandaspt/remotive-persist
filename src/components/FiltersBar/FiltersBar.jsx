@@ -1,15 +1,10 @@
 import { useState, useCallback, useEffect } from "react"
 import { Button, Dropdown, Form, Row, Spinner } from "react-bootstrap"
-import { connect } from "react-redux"
+import { useDispatch } from "react-redux"
 import remotive from "../../backend/backend"
 import { fetchJobs } from "../../redux/actions/actions"
 
-const mapStateToProps = state => state
-const mapDispatchToProps = dispatch => ({
-  getJobs: endpoint => dispatch(fetchJobs(endpoint)),
-})
-
-const FiltersBar = ({ getJobs }) => {
+const FiltersBar = () => {
   const [categories, setCategories] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
@@ -25,18 +20,15 @@ const FiltersBar = ({ getJobs }) => {
     getCategories()
   }, [getCategories])
 
+  const dispatch = useDispatch()
+  const getJobs = endpoint => dispatch(fetchJobs(endpoint))
+
   return (
     <Row className="d-flex flex-column align-items-start justify-content-center py-4">
       {isLoading ? (
         <Spinner animation="border" variant="info" />
       ) : (
-        <div
-          className="d-flex w-100 align-items-end justify-content-between"
-          // onSubmit={e => {
-          //   e.preventDefault()
-          //   getJobs(`/remote-jobs?search=${searchQuery}`)
-          // }}
-        >
+        <div className="d-flex w-100 align-items-end justify-content-between">
           <Dropdown>
             <Dropdown.Toggle variant="outline-secondary">Categories</Dropdown.Toggle>
 
@@ -81,4 +73,4 @@ const FiltersBar = ({ getJobs }) => {
     </Row>
   )
 }
-export default connect(mapStateToProps, mapDispatchToProps)(FiltersBar)
+export default FiltersBar
