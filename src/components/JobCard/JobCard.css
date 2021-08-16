@@ -1,0 +1,13 @@
+.JobCard {
+  width: 100%;
+}
+.JobCard .job-type {
+  text-transform: capitalize;
+}
+.JobCard .badge {
+  align-self: flex-start;
+}
+
+.JobCard .ToggleFavoriteIcon {
+  cursor: pointer;
+}

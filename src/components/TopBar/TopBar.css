@@ -1,0 +1,14 @@
+.TopBar {
+  background-color: #ffda90;
+  position: fixed;
+  z-index: 5;
+}
+
+.TopBar a,
+.TopBar a:hover {
+  color: black;
+}
+
+#fixed-compensator {
+  height: 56px;
+}
