@@ -11,7 +11,7 @@ const TopBar = () => {
   return (
     <div id="fixed-compensator">
       <Container fluid className="TopBar d-flex align-items-center">
-        <Link to="/" className="mr-auto">
+        <Link to="/remotive-persist" className="mr-auto">
           <h1 className="py-1 text-center m-0">Remotive Strive</h1>
         </Link>
         <FavoritesIndicator type="companies" list={favorites.companies} />
